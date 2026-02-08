@@ -16,3 +16,11 @@ Realizei o teste do endpoint de criação de conteúdo (POST /posts), simulando 
 * [x] Status Code 201 (Created).
 * [x] Validação do título do post no retorno da API.
 * [x] Planejamento de consulta SQL para conferência de banco.
+
+  ## ⚠️ Análise de Cenários 
+, realizei testes de exceção para validar a robustez do sistema:
+
+* *Cenário:* Tentativa de criação de post sem o campo obrigatório title.
+* *Comportamento Observado:* A API retornou Status 201 Created.
+* *Análise de QA:* Identificada uma inconsistência de validação, pois o sistema permitiu a persistência de um registro incompleto.
+* *Ação Corretiva:* Estruturei uma query de auditoria (auditoria_inconsistencia.sql) para identificar e monitorar esses registros inválidos na base de dados.
